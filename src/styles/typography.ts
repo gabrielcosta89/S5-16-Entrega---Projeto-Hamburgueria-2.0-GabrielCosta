@@ -31,7 +31,6 @@ export const StyledTitle = styled(BaseTitle)<IStyledTitleProps>`
           font-size: 1.35rem;
           font-weight: 700;
         `;
-
       case 'three':
         return css`
           font-size: 1.15rem;
