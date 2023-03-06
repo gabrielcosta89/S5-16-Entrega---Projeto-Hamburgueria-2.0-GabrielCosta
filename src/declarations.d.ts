@@ -4,6 +4,6 @@ declare module '*.png' {
 }
 
 declare module '*.svg' {
-  const content: React.FunctionComponent<React.SVGAttributes<SVGAElement>>;
+  const content:  React.FunctionComponentDetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>;
   export default content;
 }
