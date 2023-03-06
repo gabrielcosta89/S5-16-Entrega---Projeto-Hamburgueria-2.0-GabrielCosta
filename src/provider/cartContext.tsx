@@ -28,11 +28,13 @@ export const cartContext = createContext({} as IcartContext);
 
 export const CartProvider = ({ children }: IcartProps) => {
   const [burguers, setBurguers] = useState<IburguerList[]>([]);
+
   const [cartBurguers, setCartBurguers] = useState<IburguerList[]>([]);
   const [showCartModal, setShowCartModal] = useState<boolean>(false);
   const navigate = useNavigate();
 
   function addToCart(data: IburguerList) {
+  
     if (!cartBurguers.includes(data)) {
       setCartBurguers([...cartBurguers, data]);
       toast.success('Adicionado ao carrinho', {
@@ -69,8 +71,10 @@ export const CartProvider = ({ children }: IcartProps) => {
 
   useEffect(() => {
     async function getBurguerList() {
+   
       const token = JSON.parse(localStorage.getItem('@TOKEN') as string);
       if (token) {
+     
         try {
           const request = await api.get('/products', {
             headers: {
@@ -99,6 +103,7 @@ export const CartProvider = ({ children }: IcartProps) => {
     localStorage.clear();
     navigate('/');
   }
+
   return (
     <cartContext.Provider
       value={{
